@@ -1,17 +1,17 @@
 Markdown template for ebooks
 =============================
 
-- A template for creating creating epub and pdf books. Mostly aimed at fiction.
+- A template for creating epub and pdf books. Mostly aimed at fiction.
 
 Usage
 -----
 Put your chapters in the `chapters` directory as `.md` files. The chapters will show up in the
 book sorted by the filename. The samples are numbered, so `010_chapter.md`, ect. But you are
-free do name your chapters however you want, as long as the names sort in the right order.
+free to name your chapters however you want, as long as the names sort in the right order.
 
-Along with the usual markdown features, `!!Chapter!!` will get translated into a English word
+Along with the usual markdown features, `!!Chapter!!` will get translated into an English word
 version of the current chapter number, starting with `One`. The chapter number gets incremented
-each time your use `!!Chapter!!`. There is also `!!BREAK!!` which gets translated into a stylistic
+each time you use `!!Chapter!!`. There is also `!!BREAK!!` which gets translated into a stylistic
 break, those `* * *` that you sometimes see to signal a transition.
 
 By default `make` will build the epub version of the book.
