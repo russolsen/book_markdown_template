@@ -1,7 +1,7 @@
 Markdown template for ebooks
 =============================
 
-- A template for creating epub and pdf books. Mostly aimed at fiction.
+A template for creating epub and pdf books. Mostly aimed at fiction.
 
 Usage
 -----
