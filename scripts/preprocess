@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+import sys
+import os
+import re
+import xml.etree.ElementTree as ET
+
+DIGIT_NAME = [
+        'Zero',
+        'One',
+        'Two',
+        'Three',
+        'Four',
+        'Five',
+        'Six',
+        'Seven',
+        'Eight',
+        'Nine']
+
+TEENS_NAME = [
+        'Ten',
+        'Eleven',
+        'Twelve',
+        'Thirteen',
+        'Fourteen',
+        'Fifteen',
+        'Sixteen',
+        'Seventeen',
+        'Eighteen',
+        'Nineteen']
+
+TENS_NAME = [
+        '***',
+        '---',
+        'Twenty',
+        'Thirty',
+        'Forty',
+        'Fifty',
+        'Sixty',
+        'Seventy',
+        'Eighty',
+        'Ninety']
+
+
+def int_to_words(n):
+    if (n < 0) or (n > 99):
+        result = f'{text}?????'
+    elif n < 10:
+        result = DIGIT_NAME[n % 10]
+    elif n < 20:
+        result = TEENS_NAME[n % 10]
+    elif (n % 10) == 0:
+        result = TENS_NAME[n // 10]
+    else:
+        result = f'{TENS_NAME[n // 10]}-{int_to_words(n%10)}'
+
+    return result
+
+def convert_to_words(text):
+    if not text.isdigit():
+        return text
+
+    n = int(text)
+    return int_to_words(n)
+
+BREAK_PAT = re.compile(r'^ *!!BREAK!!')
+CHAP_PAT = re.compile(r'.*(!!CHAPTER!!).*')
+
+chap_no = 1
+
+def convert_chapter(line, o_file, _mode):
+    global chap_no
+
+    m = CHAP_PAT.search(line)
+    if m:
+        i, j = m.span(1)
+        words = int_to_words(chap_no)
+        chap_no += 1
+        expanded = f'{line[:i]}{words}{line[j:]}\n'
+        o_file.write(expanded)
+        return True
+    return False
+
+def convert_break(line, o_file, mode):
+    if BREAK_PAT.match(line):
+        if mode == 'adoc':
+            o_file.write('\n[.text-center]\n{empty} * * *\n\n')
+        else:
+            o_file.write('<p class="break"> \\* * *</p>\n')
+        return True
+    return False
+
+
+def convert_file(i_file, o_file, mode):
+    line = i_file.readline()
+    while line:
+        if convert_break(line, o_file, mode):
+            pass
+        elif convert_chapter(line, o_file, mode):
+            pass
+        else:
+            o_file.write(line)
+        line = i_file.readline()
+
+def convert(i_path, o_path, mode):
+    if mode not in ['adoc', 'md']:
+        raise Exception(f'Unknown mode {mode}')
+
+    with open(i_path, 'r') as i_file:
+        with open(o_path, 'w') as o_file:
+            convert_file(i_file, o_file, mode)
+
+# convert('orig.adoc', 'new.adoc', 'adoc')
+convert(*sys.argv[1:])

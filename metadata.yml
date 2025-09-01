@@ -1,0 +1,19 @@
+---
+title:
+- type: main
+  text: A Sample Book
+- type: subtitle
+  text: A Sample Book Subtitle
+creator:
+- role: author
+  text: John Doe
+rights: 'Copyright © 2025 by John Doe<br/>
+  All rights reserved.<br/><br/>
+  This is a work of fiction.
+  Names, characters, places and incidents either are products
+  of the author’s imagination or are used fictitiously.
+  Any resemblance to actual events or locales or persons, living or dead,
+  is entirely coincidental.<br/><br/>
+  Acme Inc<br/><br/>
+  ISBN: 999-9-9999999-9-9'
+...

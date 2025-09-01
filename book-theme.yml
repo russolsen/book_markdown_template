@@ -1,0 +1,24 @@
+extends: default-for-print
+
+base_font_size: 8
+
+page:
+  size: [4in, 6.75in]
+  margin: [0.25in, 0.375in, 0.375in, 0.25in]
+
+footer:
+  columns: <33% =33% >33%
+  recto:
+    left:
+      content: '{page-number}'
+    center:
+      content: 'Copyright 2025 John Doe'
+    right:
+      content: ''
+  verso:
+    left:
+      content: ''
+    center:
+      content: 'Copyright 2025 John Doe'
+    right:
+      content: '{page-number}'

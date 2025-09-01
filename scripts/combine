@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import sys
+import os
+import re
+
+# Combine all of the files together, separated
+# by two newlines. This ensures that each chapter
+# starts clean and won't bleed into the following
+# chapter.
+for path in sys.argv[1:]:
+    with open(path, 'r') as f:
+        text = f.read()
+        print(text, end='\n\n\n')

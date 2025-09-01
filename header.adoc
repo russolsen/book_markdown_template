@@ -1,0 +1,21 @@
+:doctype: book
+:numbered!:
+:toc: preamble
+:!sectnums:
+:!chapter-signifier:
+
+image::../../cover.png[Cover]
+<<<
+
+A Sample Book
+
+John Doe
+
+Copyright 2025 John Doe
+
+Formatted: {docdatetime}
+
+
+
+<<<
+
