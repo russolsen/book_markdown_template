@@ -1,8 +1,10 @@
 Markdown template for ebooks
 =============================
 
-- A template for creating epub and pdf books. Mostly aimed at fiction. This is the infrastructure
-that I used for my novel [Overdrive](https://www.amazon.com/gp/product/B0FGY8ZPM7).
+A template for creating epub and pdf books. Mostly aimed at fiction. You can use this to create an epub
+suitable for creating a kindle book.
+
+This is the infrastructure that I used for my novel [Overdrive](https://www.amazon.com/gp/product/B0FGY8ZPM7).
 
 Usage
 -----
