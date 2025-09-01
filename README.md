@@ -1,7 +1,8 @@
 Markdown template for ebooks
 =============================
 
-- A template for creating epub and pdf books. Mostly aimed at fiction.
+- A template for creating epub and pdf books. Mostly aimed at fiction. This is the infrastructure
+that I used for my novel [Overdrive](https://www.amazon.com/gp/product/B0FGY8ZPM7).
 
 Usage
 -----
@@ -20,6 +21,7 @@ By default `make` will build the epub version of the book.
 - `make plain` will make a rough plain text version of the book.
 - `make wrapped` will make a rough plain text version of the book with each paragraph wrapped onto a single line.
 - `make x` will produce an exploded version of your epub file, for debugging purposes.
+- `make clean` will delete the `target` directory.
 
 All of the output files end up in the `target` directory.
 
