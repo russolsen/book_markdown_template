@@ -43,4 +43,5 @@ will end up with. The `NAME` should not contain any spaces.
 
 Dependencies
 -----
-You will need both pandoc and python to use this template.
+You will need both pandoc and python to use this template to make the epub file. To make pdfs you will 
+also need asciidoctor-pdf.
